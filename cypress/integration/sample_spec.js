@@ -21,7 +21,8 @@ describe("My First Test", () => {
     const userName = "ENTER YOUR USERNAME";
     const password = "ENTER YOUR PASSWORD";
     const fortnightAway = new Date(+new Date() + 12096e5);
-    const valueString = `${fortnightAway.toISOString().split("T")[0]} 16:00:00`;
+    const fortnightAwayDate = fortnightAway.getDate();
+    const valueString = `${fortnightAway.toISOString().split("T")[0]} 13:00:00`;
 
     cy.visit(
       "https://web-8155.pastelldata.com/(S(av2vto3slutgmp24j1tootgk))/Home/SetUnit?GID=1538&GOTOPAGE=DEFAULT&HIDEMENU=0&CUSTOMCSS=https://css.pastelldata.com/1538/1538.css"
@@ -39,13 +40,13 @@ describe("My First Test", () => {
       `.LCDayCell:nth-child(${fortnightAway.getDate()}) .LCDayText`
     ).click();
     cy.wait(3000);
-    cy.get(`[value=${valueString}]`).click();
+    cy.get(`[pd-resbook-date-day=${fortnightAwayDate}] `)
+      .find(`[pd-pu-start="1080"]`)
+      .first()
+      .click();
+    cy.contains("Boka").click();
+
   });
 });
-
-// can be used to couple to text
-// cy.contains('Submit').click()
-// to get certain 
-// cy.get("button");
 
 

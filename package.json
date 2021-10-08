@@ -9,7 +9,8 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
+    "node-cron": "^3.0.0",
     "cypress": "^6.6.0"
   }
 }
