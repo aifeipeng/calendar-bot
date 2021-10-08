@@ -1,7 +1,7 @@
 var cron = require("node-cron");
 const { exec } = require("child_process");
 
-cron.schedule("1 17 * * 1", () => {
+cron.schedule("1 18 * * 1", () => {
   console.log("starting script");
   exec("sh scriptfile.sh", (error, stdout, stderr) => {
     console.log(stdout);
