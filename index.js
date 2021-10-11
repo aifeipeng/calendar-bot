@@ -11,4 +11,5 @@ cron.schedule("1 18 * * 1", () => {
     }
   });
   console.log("script finished");
-});
+},{timezone: "Europe/Stockholm"});
+
