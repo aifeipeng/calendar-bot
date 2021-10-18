@@ -20,6 +20,7 @@ describe("My First Test", () => {
   it("Visits iframe", () => {
     const userName = "ENTER YOUR USERNAME";
     const password = "ENTER YOUR PASSWORD";
+    const today = new Date();
     const fortnightAway = new Date(+new Date() + 12096e5);
     const fortnightAwayDate = fortnightAway.getDate();
     const valueString = `${fortnightAway.toISOString().split("T")[0]} 13:00:00`;
@@ -36,6 +37,9 @@ describe("My First Test", () => {
     cy.get("#InfoObject_NoneLabelFor_RadioActivityTimeFilterCombo").click();
     cy.contains("Badminton 60").click();
     cy.wait(2000);
+    if (today.getMonth() !== fortnightAway.getMonth()) {
+      cy.get(".LineCalendarGotoRight").click();
+    }
     cy.get(
       `.LCDayCell:nth-child(${fortnightAway.getDate()}) .LCDayText`
     ).click();
@@ -45,8 +49,5 @@ describe("My First Test", () => {
       .first()
       .click();
     cy.contains("Boka").click();
-
   });
 });
-
-
