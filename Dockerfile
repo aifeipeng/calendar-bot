@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM cypress/base
 ENV NODE_ENV=production
 WORKDIR /app
 COPY ["package.json", "package-lock.json*", "./"]
