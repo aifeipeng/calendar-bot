@@ -36,7 +36,7 @@ describe("My First Test", () => {
     cy.wait(2000);
     cy.get("#InfoObject_NoneLabelFor_RadioActivityTimeFilterCombo").click();
     cy.contains("Badminton 60").click();
-    cy.wait(2000);
+    cy.wait(4000);
     if (today.getMonth() !== fortnightAway.getMonth()) {
       cy.get(".LineCalendarGotoRight").click();
     }
